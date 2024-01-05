@@ -36,6 +36,11 @@ fun GetDataScreen(
     var alamat: String by remember { mutableStateOf("") }
     var telpon: String by remember { mutableStateOf("") }
     var telponInt: Int by remember { mutableStateOf(0) }
+    var tanggal: String by remember { mutableStateOf("") }
+    var jam: String by remember { mutableStateOf("") }
+    var jamInt: Int by remember { mutableStateOf(0) }
+    var lapangan: String by remember { mutableStateOf("") }
+    var lapanganInt: Int by remember { mutableStateOf(0) }
 
     val context = LocalContext.current
 
@@ -74,7 +79,7 @@ fun GetDataScreen(
                         userID = it
                     },
                     label = {
-                        Text(text = "Masukkan UserID Anda")
+                        Text(text = "Masukkan nomor pemesanan anda")
                     }
                 )
                 // get user data Button
@@ -91,10 +96,11 @@ fun GetDataScreen(
                             alamat = data.alamat
                             telpon = data.telpon.toString()
                             telponInt = telpon.toInt()
+
                         }
                     }
                 ) {
-                    Text(text = "Get Data")
+                    Text(text = "Lihat Pemesanan")
                 }
             }
             // Name

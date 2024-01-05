@@ -43,7 +43,7 @@ fun AddDataScreen(
     var tanggal: String by remember { mutableStateOf("") }
     var jam: String by remember { mutableStateOf("") }
     var jamInt: Int by remember { mutableStateOf(0) }
-    var lapangan: Int by remember { mutableStateOf(0) }
+    var lapangan: String by remember { mutableStateOf("") }
     var lapanganInt: Int by remember { mutableStateOf(0) }
 
     val context = LocalContext.current
@@ -79,7 +79,7 @@ fun AddDataScreen(
                     userID = it
                 },
                 label = {
-                    Text(text = "UserID")
+                    Text(text = "Masukkan nomor pemesanan anda, mohon diingat")
                 }
             )
             // Name
@@ -90,10 +90,10 @@ fun AddDataScreen(
                     nama = it
                 },
                 label = {
-                    Text(text = "Nama")
+                    Text(text = "Masukkan nama anda")
                 }
             )
-            // Profession
+            // alamat
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = alamat,
@@ -104,7 +104,7 @@ fun AddDataScreen(
                     Text(text = "Masukkan Alamat Anda")
                 }
             )
-            // Age
+            // Telpon
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = telpon,
@@ -115,7 +115,48 @@ fun AddDataScreen(
                     }
                 },
                 label = {
-                    Text(text = "Age")
+                    Text(text = "Masukkan nomor telpon anda")
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            // Tanggal
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = tanggal,
+                onValueChange = {
+                    tanggal = it
+                },
+                label = {
+                    Text(text = "Masukkan tanggal yang anda inginkan")
+                }
+            )
+            // Lapangan
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = lapangan,
+                onValueChange = {
+                    lapangan = it
+                    if (lapangan.isNotEmpty()){
+                        lapanganInt = lapangan.toInt()
+                    }
+                },
+                label = {
+                    Text(text = "Pilih Lapangan 1,2 atau 3")
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            // jam
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = jam,
+                onValueChange = {
+                    jam = it
+                    if (jam.isNotEmpty()){
+                        jamInt = jam.toInt()
+                    }
+                },
+                label = {
+                    Text(text = "Masukkan berapa jam anda ingin bermain")
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
