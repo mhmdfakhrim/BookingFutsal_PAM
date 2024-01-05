@@ -96,6 +96,11 @@ fun GetDataScreen(
                             alamat = data.alamat
                             telpon = data.telpon.toString()
                             telponInt = telpon.toInt()
+                            tanggal = data.tanggal
+                            lapangan = data.lapangan.toString()
+                            lapanganInt = lapangan.toInt()
+                            jam = data.jam.toString()
+                            jamInt = jam.toInt()
 
                         }
                     }
@@ -111,7 +116,7 @@ fun GetDataScreen(
                     nama = it
                 },
                 label = {
-                    Text(text = "Name")
+                    Text(text = "Nama")
                 }
             )
             // Profession
@@ -122,10 +127,10 @@ fun GetDataScreen(
                     alamat = it
                 },
                 label = {
-                    Text(text = "Profession")
+                    Text(text = "Alamat")
                 }
             )
-            // Age
+            // telpon
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = telpon,
@@ -136,7 +141,48 @@ fun GetDataScreen(
                     }
                 },
                 label = {
-                    Text(text = "Age")
+                    Text(text = "Telpon")
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            // tanggal
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = tanggal,
+                onValueChange = {
+                    tanggal = it
+                },
+                label = {
+                    Text(text = "Tanggal")
+                }
+            )
+            // lapangan
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = lapangan,
+                onValueChange = {
+                    lapangan = it
+                    if (lapangan.isNotEmpty()) {
+                        lapanganInt = lapangan.toInt()
+                    }
+                },
+                label = {
+                    Text(text = "Lapangan")
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            // jam
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = jam,
+                onValueChange = {
+                    jam = it
+                    if (jam.isNotEmpty()) {
+                        jamInt = jam.toInt()
+                    }
+                },
+                label = {
+                    Text(text = "Jam")
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
@@ -150,13 +196,17 @@ fun GetDataScreen(
                         userID = userID,
                         nama = nama,
                         alamat = alamat,
-                        telpon = telponInt
+                        telpon = telponInt,
+                        tanggal = tanggal,
+                        lapangan = lapanganInt,
+                        jam = jamInt
+
                     )
 
                     sharedViewModel.saveData(userData = userData, context = context)
                 }
             ) {
-                Text(text = "Save")
+                Text(text = "Ganti pesanan")
             }
             // delete Button
             Button(
@@ -171,7 +221,7 @@ fun GetDataScreen(
                     )
                 }
             ) {
-                Text(text = "Delete")
+                Text(text = "Batalkan pesanan")
             }
         }
     }

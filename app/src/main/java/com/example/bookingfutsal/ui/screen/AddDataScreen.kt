@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -23,11 +24,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.bookingfutsal.util.SharedViewModel
 import com.example.bookingfutsal.util.UserData
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import com.example.bookingfutsal.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,6 +57,8 @@ fun AddDataScreen(
 
     val context = LocalContext.current
 
+
+
     // main Layout
     Column(modifier = Modifier.fillMaxSize()) {
         // back button
@@ -62,6 +73,18 @@ fun AddDataScreen(
             ) {
                 Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back_button")
             }
+            Text(
+                text = "Pemesanan",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(),
+                style = TextStyle(
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Normal
+                ), color = colorResource(id = R.color.white),
+                textAlign = TextAlign.Center
+            )
         }
         // add data Layout
         Column(
@@ -71,7 +94,10 @@ fun AddDataScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+
             // userID
+
+
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = userID,
@@ -170,7 +196,10 @@ fun AddDataScreen(
                         userID = userID,
                         nama = nama,
                         alamat = alamat,
-                        telpon = telponInt
+                        telpon = telponInt,
+                        tanggal = tanggal,
+                        lapangan = lapanganInt,
+                        jam = jamInt
                     )
 
                     sharedViewModel.saveData(userData = userData, context = context)
