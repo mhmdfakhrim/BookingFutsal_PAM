@@ -111,7 +111,7 @@ fun AddDataScreen(
                 },
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                 leadingIcon = {
-                    Icon(painter = painterResource(id = R.drawable.baseline_lock_24), contentDescription = null)
+                    Icon(painter = painterResource(id = R.drawable.baseline_person_2_24), contentDescription = null)
                 }
             )
             // Name
@@ -123,6 +123,10 @@ fun AddDataScreen(
                 },
                 label = {
                     Text(text = "Masukkan nama anda")
+                },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_person_2_24), contentDescription = null)
                 }
             )
             // alamat
@@ -134,6 +138,10 @@ fun AddDataScreen(
                 },
                 label = {
                     Text(text = "Masukkan Alamat Anda")
+                },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_location_on_24), contentDescription = null)
                 }
             )
             // Telpon
@@ -149,7 +157,10 @@ fun AddDataScreen(
                 label = {
                     Text(text = "Masukkan nomor telpon anda")
                 },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_call_24), contentDescription = null)
+                }
             )
             // Tanggal
             OutlinedTextField(
