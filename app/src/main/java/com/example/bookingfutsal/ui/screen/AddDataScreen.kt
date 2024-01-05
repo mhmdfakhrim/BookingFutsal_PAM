@@ -41,10 +41,10 @@ fun AddDataScreen(
     var telpon: String by remember { mutableStateOf("") }
     var telponInt: Int by remember { mutableStateOf(0) }
     var tanggal: String by remember { mutableStateOf("") }
-    var jam: Int by remember { mutableStateOf(0) }
+    var jam: String by remember { mutableStateOf("") }
+    var jamInt: Int by remember { mutableStateOf(0) }
     var lapangan: Int by remember { mutableStateOf(0) }
-
-
+    var lapanganInt: Int by remember { mutableStateOf(0) }
 
     val context = LocalContext.current
 
