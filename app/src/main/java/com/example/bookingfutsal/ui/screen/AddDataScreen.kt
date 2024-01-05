@@ -15,7 +15,11 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -36,6 +41,8 @@ import com.example.bookingfutsal.util.SharedViewModel
 import com.example.bookingfutsal.util.UserData
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.ImeAction
 import com.example.bookingfutsal.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,35 +64,32 @@ fun AddDataScreen(
 
     val context = LocalContext.current
 
-
-
     // main Layout
     Column(modifier = Modifier.fillMaxSize()) {
-        // back button
-        Row(
-            modifier = Modifier
-                .padding(start = 15.dp, top = 15.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Start
-        ) {
-            IconButton(
-                onClick = { navController.popBackStack() }
-            ) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back_button")
-            }
-            Text(
-                text = "Pemesanan",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(),
-                style = TextStyle(
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Normal
-                ), color = colorResource(id = R.color.white),
-                textAlign = TextAlign.Center
-            )
-        }
+        // Top Bar
+        TopAppBar(
+            modifier = Modifier.fillMaxWidth(),
+            title = {
+                Text(
+                    text = "Pemesanan",
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Normal
+                    ),
+                    color = Color.White
+                )
+            },
+            navigationIcon = {
+                IconButton(
+                    onClick = { navController.popBackStack() }
+                ) {
+                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back_button")
+                }
+            },
+            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.DarkGray)
+        )
+
         // add data Layout
         Column(
             modifier = Modifier
@@ -94,18 +98,20 @@ fun AddDataScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-
             // userID
-
-
             OutlinedTextField(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth(),
                 value = userID,
                 onValueChange = {
                     userID = it
                 },
                 label = {
-                    Text(text = "Masukkan nomor pemesanan anda, mohon diingat")
+                    Text(text = "Nomor pesanan")
+                },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_lock_24), contentDescription = null)
                 }
             )
             // Name
@@ -135,7 +141,7 @@ fun AddDataScreen(
                 modifier = Modifier.fillMaxWidth(),
                 value = telpon,
                 onValueChange = {
-                                telpon = it
+                    telpon = it
                     if (telpon.isNotEmpty()){
                         telponInt = telpon.toInt()
                     }
@@ -186,6 +192,7 @@ fun AddDataScreen(
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
+
             // save Button
             Button(
                 modifier = Modifier
