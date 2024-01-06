@@ -42,7 +42,7 @@ fun NavGraph(
         composable(
             route = Screens.MainScreen.route
         ) {
-            MainScreen(navController = navController)
+            MainScreen(navController = navController, sharedViewModel = SharedViewModel())
         }
         // get data screen
         composable(
