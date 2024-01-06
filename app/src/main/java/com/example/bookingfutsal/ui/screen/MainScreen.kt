@@ -44,7 +44,7 @@ fun MainScreen(
             modifier = Modifier.fillMaxWidth(),
             title = {
                 Text(
-                    text = "Home",
+                    text = "Salvator Futsal",
                     style = TextStyle(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
