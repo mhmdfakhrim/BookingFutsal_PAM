@@ -122,7 +122,7 @@ fun AddDataScreen(
                     nama = it
                 },
                 label = {
-                    Text(text = "Masukkan nama anda")
+                    Text(text = "Nama")
                 },
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                 leadingIcon = {
@@ -137,7 +137,7 @@ fun AddDataScreen(
                     alamat = it
                 },
                 label = {
-                    Text(text = "Masukkan Alamat Anda")
+                    Text(text = "Alamat")
                 },
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                 leadingIcon = {
@@ -155,7 +155,7 @@ fun AddDataScreen(
                     }
                 },
                 label = {
-                    Text(text = "Masukkan nomor telpon anda")
+                    Text(text = "Nomor Telpon")
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
                 leadingIcon = {
@@ -170,7 +170,11 @@ fun AddDataScreen(
                     tanggal = it
                 },
                 label = {
-                    Text(text = "Masukkan tanggal yang anda inginkan")
+                    Text(text = "Tanggal")
+                },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_calendar_month_24), contentDescription = null)
                 }
             )
             // Lapangan
@@ -186,7 +190,11 @@ fun AddDataScreen(
                 label = {
                     Text(text = "Pilih Lapangan 1,2 atau 3")
                 },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_sports_baseball_24), contentDescription = null)
+                }
+
             )
             // jam
             OutlinedTextField(
@@ -199,9 +207,12 @@ fun AddDataScreen(
                     }
                 },
                 label = {
-                    Text(text = "Masukkan berapa jam anda ingin bermain")
+                    Text(text = "Berapa jam ingin bermain")
                 },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_access_time_24), contentDescription = null)
+                }
             )
 
             // save Button
@@ -223,7 +234,7 @@ fun AddDataScreen(
                     sharedViewModel.saveData(userData = userData, context = context)
                 }
             ) {
-                Text(text = "Save")
+                Text(text = "Pesan")
             }
         }
     }

@@ -25,7 +25,7 @@ class SharedViewModel() : ViewModel() {
         try {
             fireStoreRef.set(userData)
                 .addOnSuccessListener {
-                    Toast.makeText(context, "Successfully saved data", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Berhasil Memesan Lapangan", Toast.LENGTH_SHORT).show()
                 }
         } catch (e: Exception) {
             Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()

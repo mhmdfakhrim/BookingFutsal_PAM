@@ -62,7 +62,7 @@ fun GetDataScreen(
         // get data Layout
         Column(
             modifier = Modifier
-                .padding(start = 60.dp, end = 60.dp, bottom = 50.dp)
+                .padding(start = 40.dp, end = 40.dp, bottom = 50.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -73,20 +73,20 @@ fun GetDataScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(0.6f),
+                    modifier = Modifier.fillMaxWidth(0.7f),
                     value = userID,
                     onValueChange = {
                         userID = it
                     },
                     label = {
-                        Text(text = "Masukkan nomor pemesanan anda")
+                        Text(text = "Nomor pemesanan anda")
                     }
                 )
                 // get user data Button
                 Button(
                     modifier = Modifier
-                        .padding(start = 10.dp)
-                        .width(100.dp),
+                        .padding(start = 2.dp)
+                        .width(200.dp),
                     onClick = {
                         sharedViewModel.retrieveData(
                             userID = userID,
@@ -101,11 +101,10 @@ fun GetDataScreen(
                             lapanganInt = lapangan.toInt()
                             jam = data.jam.toString()
                             jamInt = jam.toInt()
-
                         }
                     }
                 ) {
-                    Text(text = "Lihat Pemesanan")
+                    Text(text = "Cek")
                 }
             }
             // Name

@@ -17,6 +17,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -125,8 +126,8 @@ fun LoginScreen(
             singleLine = true,
             textStyle = TextStyle(
                 color = Color.White,
-                fontWeight = FontWeight.Bold,
-                fontSize = 10.sp
+                fontWeight = FontWeight.Medium,
+                fontSize = 15.sp
             ),
             shape = RoundedCornerShape(50.dp),
             modifier = Modifier
@@ -197,8 +198,8 @@ fun LoginScreen(
             singleLine = true,
             textStyle = TextStyle(
                 color = Color.White,
-                fontWeight = FontWeight.Bold,
-                fontSize = 10.sp
+                fontWeight = FontWeight.Medium,
+                fontSize = 15.sp
             ),
             shape = RoundedCornerShape(50.dp),
             modifier = Modifier
@@ -257,6 +258,17 @@ fun LoginScreen(
                 navController.navigate(Screens.MainScreen.route)
             }
             vm.signedIn.value = false
+        }
+
+        Spacer(modifier = Modifier.height(70.dp))
+
+        OutlinedButton(
+            modifier = Modifier.fillMaxWidth(0.6f),
+            onClick = {
+                navController.navigate(route = Screens.SignupScreen.route)
+            }
+        ) {
+            Text(text = "Don't have account? Signup", fontSize = 10.sp)
         }
     }
 }
