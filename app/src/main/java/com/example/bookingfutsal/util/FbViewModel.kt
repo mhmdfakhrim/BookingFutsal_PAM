@@ -1,7 +1,8 @@
-package com.example.bookingfutsal
+package com.example.bookingfutsal.util
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.example.bookingfutsal.event.Event
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.lang.Exception

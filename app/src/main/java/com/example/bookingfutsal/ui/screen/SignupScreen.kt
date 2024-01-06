@@ -34,7 +34,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.bookingfutsal.FbViewModel
+import com.example.bookingfutsal.util.FbViewModel
 import com.example.bookingfutsal.R
 import com.example.bookingfutsal.nav.Screens
 

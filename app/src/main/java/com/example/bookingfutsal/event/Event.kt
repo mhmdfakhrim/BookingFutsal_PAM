@@ -1,4 +1,4 @@
-package com.example.bookingfutsal
+package com.example.bookingfutsal.event
 
 open class Event<out T>(private val content: T) {
 

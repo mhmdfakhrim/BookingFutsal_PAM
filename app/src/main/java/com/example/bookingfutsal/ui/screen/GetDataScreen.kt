@@ -19,8 +19,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.bookingfutsal.util.SharedViewModel
 import com.example.bookingfutsal.util.UserData
@@ -47,18 +54,28 @@ fun GetDataScreen(
     // main Layout
     Column(modifier = Modifier.fillMaxSize()) {
         // back button
-        Row(
-            modifier = Modifier
-                .padding(start = 15.dp, top = 15.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Start
-        ) {
-            IconButton(
-                onClick = { navController.popBackStack() }
-            ) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back_button")
-            }
-        }
+        TopAppBar(
+            modifier = Modifier.fillMaxWidth(),
+            title = {
+                Text(
+                    text = "Cek Pemesanan",
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Normal
+                    ),
+                    color = Color.White
+                )
+            },
+            navigationIcon = {
+                IconButton(
+                    onClick = { navController.popBackStack() }
+                ) {
+                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back_button")
+                }
+            },
+            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.DarkGray)
+        )
         // get data Layout
         Column(
             modifier = Modifier

@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.bookingfutsal.FbViewModel
+import com.example.bookingfutsal.util.FbViewModel
 import com.example.bookingfutsal.main.NotificationMessage
 import com.example.bookingfutsal.ui.screen.AddDataScreen
 import com.example.bookingfutsal.ui.screen.GetDataScreen
@@ -28,7 +28,7 @@ fun NavGraph(
 
     NavHost(
         navController = navController,
-        startDestination = Screens.SignupScreen.route
+        startDestination = Screens.MainScreen.route
     ) {
         composable(route = Screens.LoginScreen.route) {
             LoginScreen(navController, vm)
