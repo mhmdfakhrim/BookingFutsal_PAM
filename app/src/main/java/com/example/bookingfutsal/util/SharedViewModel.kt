@@ -1,17 +1,22 @@
 package com.example.bookingfutsal.util
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import com.example.bookingfutsal.nav.Screens
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SharedViewModel() : ViewModel() {
+
+    private val TAG = SharedViewModel::class.simpleName
 
     fun saveData(
         userData: UserData,
@@ -78,5 +83,24 @@ class SharedViewModel() : ViewModel() {
         } catch (e: Exception) {
             Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun logout(navController: NavController) {
+
+        val firebaseAuth = FirebaseAuth.getInstance()
+
+        firebaseAuth.signOut()
+
+        val authStateListener = FirebaseAuth.AuthStateListener {
+            if (it.currentUser == null) {
+                Log.d(TAG, "Inside sign outsuccess")
+                navController.navigate(route = Screens.LoginScreen.route)
+            } else {
+                Log.d(TAG, "Inside sign out is not complete")
+            }
+        }
+
+        firebaseAuth.addAuthStateListener(authStateListener)
+
     }
 }
