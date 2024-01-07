@@ -198,7 +198,7 @@ fun AddDataScreen(
                 }
 
             )
-            // jam
+            // jam bermain
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = jambermain,
@@ -212,6 +212,21 @@ fun AddDataScreen(
                     Text(text = "Berapa jam ingin bermain")
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+                leadingIcon = {
+                    Icon(painter = painterResource(id = R.drawable.baseline_access_time_24), contentDescription = null)
+                }
+            )
+            // jam masuk lapangan
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = jammasuk,
+                onValueChange = {
+                    jammasuk = it
+                },
+                label = {
+                    Text(text = "Jam Masuk Lapangan")
+                },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                 leadingIcon = {
                     Icon(painter = painterResource(id = R.drawable.baseline_access_time_24), contentDescription = null)
                 }
