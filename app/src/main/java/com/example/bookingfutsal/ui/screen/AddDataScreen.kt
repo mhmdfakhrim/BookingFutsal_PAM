@@ -238,7 +238,8 @@ fun AddDataScreen(
                         telpon = telponInt,
                         tanggal = tanggal,
                         lapangan = lapanganInt,
-                        jambermain = jambermainInt
+                        jambermain = jambermainInt,
+                        jammasuk = jammasuk
                     )
 
                     sharedViewModel.saveData(userData = userData, context = context)
