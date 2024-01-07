@@ -201,11 +201,11 @@ fun AddDataScreen(
             // jam
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                value = jam,
+                value = jambermain,
                 onValueChange = {
-                    jam = it
-                    if (jam.isNotEmpty()){
-                        jamInt = jam.toInt()
+                    jambermain = it
+                    if (jambermain.isNotEmpty()){
+                        jambermainInt = jambermain.toInt()
                     }
                 },
                 label = {
