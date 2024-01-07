@@ -44,10 +44,12 @@ fun GetDataScreen(
     var telpon: String by remember { mutableStateOf("") }
     var telponInt: Int by remember { mutableStateOf(0) }
     var tanggal: String by remember { mutableStateOf("") }
-    var jam: String by remember { mutableStateOf("") }
-    var jamInt: Int by remember { mutableStateOf(0) }
+    var jambermain: String by remember { mutableStateOf("") }
+    var jambermainInt: Int by remember { mutableStateOf(0) }
     var lapangan: String by remember { mutableStateOf("") }
     var lapanganInt: Int by remember { mutableStateOf(0) }
+    var jammasuk: String by remember { mutableStateOf("") }
+
 
     val context = LocalContext.current
 
@@ -116,8 +118,9 @@ fun GetDataScreen(
                             tanggal = data.tanggal
                             lapangan = data.lapangan.toString()
                             lapanganInt = lapangan.toInt()
-                            jam = data.jam.toString()
-                            jamInt = jam.toInt()
+                            jambermain = data.jambermain.toString()
+                            jambermainInt = jambermain.toInt()
+
                         }
                     }
                 ) {
@@ -215,7 +218,7 @@ fun GetDataScreen(
                         telpon = telponInt,
                         tanggal = tanggal,
                         lapangan = lapanganInt,
-                        jam = jamInt
+                        jambermain = jambermainInt
 
                     )
 

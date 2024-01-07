@@ -7,5 +7,6 @@ data class UserData (
     var telpon: Int = 0,
     var lapangan: Int = 0,
     var tanggal: String = "",
+    var jambermain: Int = 0,
     var jam: Int = 0
 )
