@@ -208,12 +208,12 @@ fun GetDataScreen(
             )
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                value = tanggal,
+                value = jammasuk,
                 onValueChange = {
-                    tanggal = it
+                    jammasuk = it
                 },
                 label = {
-                    Text(text = "Tanggal")
+                    Text(text = "Jam Masuk Lapangan")
                 }
             )
             // save Button
@@ -229,7 +229,8 @@ fun GetDataScreen(
                         telpon = telponInt,
                         tanggal = tanggal,
                         lapangan = lapanganInt,
-                        jambermain = jambermainInt
+                        jambermain = jambermainInt,
+                        jammasuk = jammasuk
 
                     )
 
