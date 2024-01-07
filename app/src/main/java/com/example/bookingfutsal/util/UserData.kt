@@ -8,5 +8,5 @@ data class UserData (
     var lapangan: Int = 0,
     var tanggal: String = "",
     var jambermain: Int = 0,
-    var jam: Int = 0
+    var jammasuk: String = ""
 )

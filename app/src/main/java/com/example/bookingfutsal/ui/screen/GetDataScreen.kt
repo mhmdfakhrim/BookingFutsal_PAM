@@ -120,6 +120,7 @@ fun GetDataScreen(
                             lapanganInt = lapangan.toInt()
                             jambermain = data.jambermain.toString()
                             jambermainInt = jambermain.toInt()
+                            jammasuk = data.jammasuk
 
                         }
                     }
@@ -190,20 +191,30 @@ fun GetDataScreen(
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
-            // jam
+            // jam bermain
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                value = jam,
+                value = jambermain,
                 onValueChange = {
-                    jam = it
-                    if (jam.isNotEmpty()) {
-                        jamInt = jam.toInt()
+                    jambermain = it
+                    if (jambermain.isNotEmpty()) {
+                        jambermainInt = jambermain.toInt()
                     }
                 },
                 label = {
                     Text(text = "Jam")
                 },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = tanggal,
+                onValueChange = {
+                    tanggal = it
+                },
+                label = {
+                    Text(text = "Tanggal")
+                }
             )
             // save Button
             Button(
