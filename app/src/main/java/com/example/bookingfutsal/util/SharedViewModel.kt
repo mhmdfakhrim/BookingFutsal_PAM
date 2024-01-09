@@ -20,7 +20,8 @@ class SharedViewModel() : ViewModel() {
 
     fun saveData(
         userData: UserData,
-        context: Context
+        context: Context,
+        navController: NavController
     ) = CoroutineScope(Dispatchers.IO).launch {
 
         val fireStoreRef = Firebase.firestore
@@ -31,6 +32,7 @@ class SharedViewModel() : ViewModel() {
             fireStoreRef.set(userData)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Berhasil Memesan Lapangan", Toast.LENGTH_SHORT).show()
+                    navController.navigate(route = Screens.MainScreen.route)
                 }
         } catch (e: Exception) {
             Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
@@ -103,4 +105,6 @@ class SharedViewModel() : ViewModel() {
         firebaseAuth.addAuthStateListener(authStateListener)
 
     }
+
+
 }

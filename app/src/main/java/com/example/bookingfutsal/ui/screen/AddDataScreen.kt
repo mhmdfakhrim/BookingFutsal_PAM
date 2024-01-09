@@ -242,7 +242,7 @@ fun AddDataScreen(
                         jammasuk = jammasuk
                     )
 
-                    sharedViewModel.saveData(userData = userData, context = context)
+                    sharedViewModel.saveData(userData = userData, context = context, navController)
                 }
             ) {
                 Text(text = "Pesan")
