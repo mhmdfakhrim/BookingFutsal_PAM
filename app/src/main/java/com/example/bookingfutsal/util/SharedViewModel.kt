@@ -12,11 +12,19 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
 
+private const val HARGA_PER_JAM = 100000
 class SharedViewModel() : ViewModel() {
 
     private val TAG = SharedViewModel::class.simpleName
+    private val _stateUI = MutableStateFlow(UserData())
+    val stateUI: StateFlow<UserData> = _stateUI.asStateFlow()
 
     fun saveData(
         userData: UserData,
@@ -106,5 +114,21 @@ class SharedViewModel() : ViewModel() {
 
     }
 
+    fun setJumlah(jmlJam:Int){
+        _stateUI.update { stateSaatIni ->
+            stateSaatIni.copy(
+                jambermain = jmlJam,
+                harga = hitungHarga(jambermain = jmlJam)
+            )
+        }
 
+    }
+
+    private fun hitungHarga(
+        jambermain: Int = _stateUI.value.jambermain,
+    ): String{
+        val kalkulasiHarga = jambermain * HARGA_PER_JAM
+
+        return NumberFormat.getNumberInstance().format(kalkulasiHarga)
+    }
 }

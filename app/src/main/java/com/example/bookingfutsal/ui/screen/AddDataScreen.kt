@@ -35,6 +35,7 @@ import com.example.bookingfutsal.util.SharedViewModel
 import com.example.bookingfutsal.util.UserData
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import com.example.bookingfutsal.R
 
@@ -42,7 +43,8 @@ import com.example.bookingfutsal.R
 @Composable
 fun AddDataScreen(
     navController: NavController,
-    sharedViewModel: SharedViewModel
+    sharedViewModel: SharedViewModel,
+    onConfirmButtonClicked: (Int) -> Unit,
 ) {
     var userID: String by remember { mutableStateOf("") }
     var nama: String by remember { mutableStateOf("") }
@@ -55,6 +57,7 @@ fun AddDataScreen(
     var lapangan: String by remember { mutableStateOf("") }
     var lapanganInt: Int by remember { mutableStateOf(0) }
     var jammasuk: String by remember { mutableStateOf("") }
+    var harga: String by remember { mutableStateOf("") }
 
 
     val context = LocalContext.current
@@ -209,6 +212,12 @@ fun AddDataScreen(
                     Icon(painter = painterResource(id = R.drawable.baseline_access_time_24), contentDescription = null)
                 }
             )
+            Button(modifier = Modifier.weight(1f),
+                enabled = jambermain.isNotEmpty(),
+                onClick = { onConfirmButtonClicked(jambermain.toInt())}
+            ){
+                Text(stringResource(R.string.confirm))
+            }
             // jam masuk lapangan
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -240,6 +249,7 @@ fun AddDataScreen(
                         lapangan = lapanganInt,
                         jambermain = jambermainInt,
                         jammasuk = jammasuk
+
                     )
 
                     sharedViewModel.saveData(userData = userData, context = context, navController)

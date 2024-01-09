@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.bookingfutsal.komponen.FormatLabelHarga
 import com.example.bookingfutsal.util.SharedViewModel
 import com.example.bookingfutsal.util.UserData
 
@@ -36,7 +37,8 @@ import com.example.bookingfutsal.util.UserData
 @Composable
 fun GetDataScreen(
     navController: NavController,
-    sharedViewModel: SharedViewModel
+    sharedViewModel: SharedViewModel,
+    dataHarga: UserData
 ) {
     var userID: String by remember { mutableStateOf("") }
     var nama: String by remember { mutableStateOf("") }
@@ -49,6 +51,7 @@ fun GetDataScreen(
     var lapangan: String by remember { mutableStateOf("") }
     var lapanganInt: Int by remember { mutableStateOf(0) }
     var jammasuk: String by remember { mutableStateOf("") }
+    var harga: String by remember { mutableStateOf("") }
 
 
     val context = LocalContext.current
@@ -121,6 +124,7 @@ fun GetDataScreen(
                             jambermain = data.jambermain.toString()
                             jambermainInt = jambermain.toInt()
                             jammasuk = data.jammasuk
+                            harga = data.harga
 
                         }
                     }
@@ -216,6 +220,10 @@ fun GetDataScreen(
                     Text(text = "Jam Masuk Lapangan")
                 }
             )
+            FormatLabelHarga(
+                subtotal = dataHarga.harga,
+                modifier = Modifier.align(Alignment.End)
+            )
             // save Button
             Button(
                 modifier = Modifier
@@ -234,7 +242,7 @@ fun GetDataScreen(
 
                     )
 
-                    sharedViewModel.saveData(userData = userData, context = context)
+                    sharedViewModel.saveData(userData = userData, context = context, navController)
                 }
             ) {
                 Text(text = "Ganti pesanan")

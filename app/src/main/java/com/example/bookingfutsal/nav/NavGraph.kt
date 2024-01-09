@@ -1,6 +1,8 @@
 package com.example.bookingfutsal.nav
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -14,6 +16,7 @@ import com.example.bookingfutsal.ui.screen.LoginScreen
 import com.example.bookingfutsal.ui.screen.MainScreen
 import com.example.bookingfutsal.ui.screen.SignupScreen
 import com.example.bookingfutsal.util.SharedViewModel
+import com.example.bookingfutsal.util.UserData
 
 @Composable
 fun NavGraph(
@@ -25,7 +28,7 @@ fun NavGraph(
     
     NotificationMessage(vm)
 
-
+    val uiState by sharedViewModel.stateUI.collectAsState()
     NavHost(
         navController = navController,
         startDestination = Screens.LoginScreen.route
@@ -50,7 +53,8 @@ fun NavGraph(
         ) {
             GetDataScreen(
                 navController = navController,
-                sharedViewModel = sharedViewModel
+                sharedViewModel = sharedViewModel,
+                dataHarga = UserData()
             )
         }
         // add data screen
@@ -59,7 +63,8 @@ fun NavGraph(
         ) {
             AddDataScreen(
                 navController = navController,
-                sharedViewModel = sharedViewModel
+                sharedViewModel = sharedViewModel,
+                onConfirmButtonClicked = { sharedViewModel.setJumlah(it) }
             )
         }
     }
