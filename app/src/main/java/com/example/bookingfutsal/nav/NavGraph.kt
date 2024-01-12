@@ -31,7 +31,7 @@ fun NavGraph(
     val uiState by sharedViewModel.stateUI.collectAsState()
     NavHost(
         navController = navController,
-        startDestination = Screens.LoginScreen.route
+        startDestination = Screens.MainScreen.route
     ) {
         composable(route = Screens.LoginScreen.route) {
             LoginScreen(navController, vm)

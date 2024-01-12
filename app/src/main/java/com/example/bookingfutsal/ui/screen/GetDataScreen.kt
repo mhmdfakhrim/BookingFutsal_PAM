@@ -84,7 +84,7 @@ fun GetDataScreen(
         // get data Layout
         Column(
             modifier = Modifier
-                .padding(start = 40.dp, end = 40.dp, bottom = 30.dp)
+                .padding(start = 40.dp, end = 40.dp, bottom = 5.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
