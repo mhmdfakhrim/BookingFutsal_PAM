@@ -4,7 +4,7 @@
 ## Project Description
 #### Aplikasi ini dirancang untuk user yang ingin menyewa lapangan futsal, sehingga para user tidak perlu lagi ke tempat langsung untuk menyewa lapangan futsal. Aplikasi ini dikembangkan dengan Firebase sebagai backend service nya menggunakan 2 fitur Firebase yaitu; 1. Cloud Firestore sebagai database untuk menyimpan data pemesanan. 2. Authentication untuk mengautentikasi pengguna ke aplikasi BookingFutsal. Fungsi lebih rinci dapat dilihat dalam use case diagram dibawah ini.
 ## Use Case
-![Use Case BookingFutsal](https://github.com/mhmdfakhrim/BookingFutsal_PAM/assets/106448800/069bf00f-8f36-4e1c-a632-f5e541af9785)
+![BookFutsal](https://github.com/mhmdfakhrim/BookingFutsal_PAM/assets/106448800/366cf29a-5001-43da-86f5-9a0262e5b9a0)
 - Signup (Daftar Akun): Pengguna dapat mendaftarkan akun agar bisa mengakses fungsi aplikasi BookingFutsal
 - Login (Masuk Aplikasi): Pengguna yang sudah mempunyai akun dapat masuk ke aplikasi menggunakan email dan password yang sudah di daftarkan sebelumnya.
 - Logout (Keluar Aplikasi): Pengguna dapat mengeluarkan akun dari aplikasi.
